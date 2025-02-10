@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="user_name">User Name</string>
+    <string name="password">Password</string>
+    <string name="user_name_hint">Enter User Name Here</string>
+    <string name="password_hint">Enter Password Here</string>
+    <string name="loginButton">Login</string>
+    <string name="campus_spinner">campus_spinner</string>
+
+    <string-array name="campus_spinner">
+        <item>Ho Chi Minh</item>
+        <item>Hanoi</item>
+        <item>Can Tho</item>
+        <item>Da Nang</item>
+    </string-array>
+</resources>
