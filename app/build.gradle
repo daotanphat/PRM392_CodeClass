@@ -38,5 +38,8 @@ dependencies {
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
-//    annotationProcessor libs.lombok
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation "androidx.room:room-runtime:2.4.3"
+    annotationProcessor libs.lombok
+    annotationProcessor "androidx.room:room-compiler:2.4.3"
 }

@@ -1,6 +1,9 @@
 package com.dtp.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,12 +15,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.dtp.myapplication.adapter.WorkListAdapter;
 import com.dtp.myapplication.bean.WorkBean;
+import com.dtp.myapplication.entity.Product;
+import com.dtp.myapplication.repository.ProductRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class WorkListActivity extends AppCompatActivity {
-    private List<WorkBean> workBeans = new ArrayList<>();
+    private ProductRepository productRepository;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,19 +35,26 @@ public class WorkListActivity extends AppCompatActivity {
             return insets;
         });
 
+        productRepository = new ProductRepository(this);
+        List<Product> products = productRepository.getAllProducts();
+
         initData();
         RecyclerView recyclerViewList = findViewById(R.id.recycleViewWorkList);
         recyclerViewList.setLayoutManager(new LinearLayoutManager(this));
-        WorkListAdapter adapter = new WorkListAdapter(this, workBeans);
+        WorkListAdapter adapter = new WorkListAdapter(this, products);
         recyclerViewList.setAdapter(adapter);
+
+        Button btnAddProduct = findViewById(R.id.btnAddProduct);
+        btnAddProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(WorkListActivity.this, AddProductActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void initData() {
-        for (int i = 1; i < 50; i++) {
-            WorkBean workBean = new WorkBean();
-            workBean.setId(i);
-            workBean.setWork("Work " + i);
-            workBeans.add(workBean);
-        }
+        productRepository.getAllProducts();
     }
 }

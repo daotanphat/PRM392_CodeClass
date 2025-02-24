@@ -2,6 +2,9 @@
     <string name="app_name">My Application</string>
     <string name="user_name">User Name</string>
     <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
     <string name="user_name_hint">Enter User Name Here</string>
     <string name="password_hint">Enter Password Here</string>
     <string name="loginButton">Login</string>

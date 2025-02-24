@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/edit_user_option_menu"
+        android:icon="@drawable/ic_action_edit_user_profile"
+        android:title="Edit User Profile"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/service_option_menu"
+        android:icon="@drawable/ic_action_service"
+        android:title="Service"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/setting_option_menu"
+        android:title="Setting"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/favorite_option_menu"
+        android:title="Favorite"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/logout_option_menu"
+        android:title="Logout"
+        app:showAsAction="ifRoom" />
+</menu>

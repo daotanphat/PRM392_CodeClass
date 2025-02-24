@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 
@@ -25,6 +26,7 @@ import com.dtp.myapplication.service.UserService;
 
 public class EditProfileActivity extends AppCompatActivity {
     private EditText edtFirstName, edtLastName, edtPhone, edtRole;
+    private ImageView imageView;
     private Spinner spnAddress;
     private RadioGroup rdgGender;
     private Button btnSaveProfile;
@@ -100,6 +102,7 @@ public class EditProfileActivity extends AppCompatActivity {
     private void initViews() {
         edtFirstName = findViewById(R.id.edtFirstName);
         edtLastName = findViewById(R.id.edtLastName);
+        imageView = findViewById(R.id.imageView);
 
         spnAddress = findViewById(R.id.spnAddress);
         ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter

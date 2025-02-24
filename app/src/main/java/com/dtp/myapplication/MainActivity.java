@@ -1,7 +1,9 @@
 package com.dtp.myapplication;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Display;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -19,6 +21,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.dtp.myapplication.database.DatabaseSetHandler;
 import com.dtp.myapplication.service.UserService;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
@@ -29,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private CheckBox cboRemember;
     private Button btnLogin;
     private UserService userService;
+    private DatabaseSetHandler databaseSetHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +45,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        databaseSetHandler = new DatabaseSetHandler(this);
 
         editUsername = findViewById(R.id.edit_username);
         editPass = findViewById(R.id.edit_pass);
@@ -110,6 +116,16 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                         intent.putExtra(IntentKey.CAMPUS, campus);
                         intent.putExtra(IntentKey.ROLE, role);
                         intent.putExtra(IntentKey.REMEMBER, remember);
+
+                        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putString("username", username);
+                        editor.putString("password", password);
+                        editor.putString("campus", campus);
+                        editor.putString("role", role);
+                        editor.putBoolean("remember", remember);
+                        editor.apply();
+
                         startActivity(intent);
                     } else {
                         Toast.makeText(MainActivity.this,

@@ -1,6 +1,7 @@
 package com.dtp.myapplication.bean;
 
 public class UserBean {
+    private int id;
     private String username;
     private String password;
     private String campus;
@@ -13,8 +14,8 @@ public class UserBean {
     public UserBean() {
     }
 
-    public UserBean(String username, String password, String campus, String role, boolean remember,
-                    String firstName, String lastName, String mobile) {
+    public UserBean(int id, String username, String password, String campus, String role, boolean remember, String firstName, String lastName, String mobile) {
+        this.id = id;
         this.username = username;
         this.password = password;
         this.campus = campus;
@@ -23,6 +24,14 @@ public class UserBean {
         this.firstName = firstName;
         this.lastName = lastName;
         this.mobile = mobile;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getUsername() {
@@ -87,19 +96,5 @@ public class UserBean {
 
     public void setMobile(String mobile) {
         this.mobile = mobile;
-    }
-
-    @Override
-    public String toString() {
-        return "UserBean{" +
-                "username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", campus='" + campus + '\'' +
-                ", role='" + role + '\'' +
-                ", remember=" + remember +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", mobile='" + mobile + '\'' +
-                '}';
     }
 }
